@@ -1,0 +1,12 @@
+BLOBS — NETLIFY IPHONE DEPLOY
+
+1. In Netlify, open blobscardgame.
+2. Open Deploys.
+3. Choose Add new deploy / Deploy manually.
+4. Upload this ZIP file.
+5. Wait until the deploy says Published.
+6. Open https://blobscardgame.netlify.app
+
+The site files are at the ZIP root, including index.html.
+This package currently provides the local three-player demo.
+Online rooms still need a hosted multiplayer backend.
