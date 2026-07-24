@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#4d2877" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Blobs" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Blobs</title>
+</head>
+<body>
+  <main id="app" class="shell">
+    <section id="home" class="screen active">
+      <div class="brand"><div class="blob">😁</div><h1>BLOBS</h1><p>Predict every trick. Avoid the blobs.</p></div>
+      <label>Player name<input id="playerName" maxlength="18" autocomplete="nickname" placeholder="Carl" /></label>
+      <button id="createRoom" class="primary">Create private room</button>
+      <div class="divider">or</div>
+      <label>Room code<input id="roomCode" maxlength="6" autocapitalize="characters" placeholder="BLOB42" /></label>
+      <button id="joinRoom" class="secondary">Join room</button>
+      <button id="demoGame" class="ghost">Play local demo</button>
+      <p id="homeStatus" class="status" aria-live="polite"></p>
+    </section>
+
+    <section id="lobby" class="screen">
+      <header><button class="back" data-go="home">‹</button><div><small>PRIVATE ROOM</small><h2 id="lobbyCode">------</h2></div></header>
+      <div class="card"><h3>Players</h3><ul id="playersList"></ul></div>
+      <button id="readyButton" class="secondary">I’m ready</button>
+      <button id="startGame" class="primary">Start game</button>
+      <p id="lobbyStatus" class="status" aria-live="polite"></p>
+    </section>
+
+    <section id="game" class="screen game-screen">
+      <header class="game-header"><button class="back" data-go="home">×</button><div><small id="roundLabel">ROUND 1 OF 13</small><h2 id="trumpLabel">♦ Diamonds Trump</h2></div><div id="timer" class="timer">30</div></header>
+      <div id="scoreStrip" class="score-strip"></div>
+      <div class="table">
+        <div id="turnMessage" class="turn-message">Your turn</div>
+        <div id="trick" class="trick"></div>
+      </div>
+      <section id="bidPanel" class="panel"><h3>Make your bid</h3><div id="bidChoices" class="bid-choices"></div><p id="bidRule"></p></section>
+      <section id="handPanel" class="hand-panel hidden"><p id="legalMessage"></p><div id="hand" class="hand"></div></section>
+      <button id="nextDemoTurn" class="ghost hidden">Advance demo players</button>
+      <section id="trickResult" class="trick-result hidden" aria-live="polite">
+        <div class="trick-result-card">
+          <div class="trick-result-copy">
+            <h2 id="trickWinnerTitle">🏆 Trick won!</h2>
+            <p id="trickWinnerDetail"></p>
+          </div>
+          <div class="trick-result-actions">
+            <span class="countdown-copy"><strong id="trickCountdown">10</strong>s</span>
+            <button id="continueTrick" class="secondary">Next trick</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="results" class="screen">
+      <div class="brand"><div class="blob" id="resultBlob">😁</div><h2 id="resultTitle">Round complete</h2></div>
+      <div id="resultScores" class="card"></div>
+      <button id="continueRound" class="primary">Continue</button>
+      <button class="ghost" data-go="home">Leave game</button>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
